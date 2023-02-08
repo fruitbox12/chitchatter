@@ -28,7 +28,7 @@ export function Home({ userId }: HomeProps) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    setTitle('Discourse Spaces')
+    setTitle('Spaces')
   }, [setTitle])
 
   const handleRoomNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,93 +51,111 @@ export function Home({ userId }: HomeProps) {
   const isRoomNameValid = roomName.length > 0
 
   return (
-    <><Box className="Home">
-<main className="mt-6 px-4 max-w-3xl text-center mx-auto">
-<Link to={routes.ABOUT}>
-<Logo className="px-1 pb-4 mx-auto max-w-md" />
-</Link>
-<form onSubmit={handleFormSubmit} className="max-w-xl mx-auto">
-<Typography sx={{ mb: 2 }}>
-Your user name:{' '}
-<PeerNameDisplay paragraph={false} sx={{ fontWeight: 'bold' }}>
-{userId}
-</PeerNameDisplay>
-</Typography>
-<FormControl fullWidth>
-<Tooltip title="Default room names are randomly generated client-side">
-<TextField
-label="Discourse name"
-variant="outlined"
-value={roomName}
-onChange={handleRoomNameChange}
-InputProps={{
-endAdornment: (
-<IconButton
-aria-label="Regenerate room id"
-onClick={() => setRoomName(uuid())}
-size="small"
->
-<Cached />
-</IconButton>
-),
-sx: { fontSize: { xs: '0.9rem',sm: '1rem' } },
-}}
-size="medium" />
-</Tooltip>
-</FormControl>
-</Box>
-
-<Box
-sx={{
-display: 'flex',
-justifyContent: 'center',
-}}
->
-<Button
-variant="contained"
-onClick={handleJoinPublicRoomClick}
-sx={{
-marginTop: 2,
-}}
-disabled={!isRoomNameValid}
->
-Join public room
-</Button>
-<Button
-variant="contained"
-onClick={handleJoinPrivateRoomClick}
-sx={{
-marginTop: 2,
-marginLeft: 2,
-}}
-disabled={!isRoomNameValid}
->
-Join Discourse
-</Button>
-</Box>
-</form>
-</main><Divider sx={{ my: 2 }} /><Box className="max-w-3xl text-center mx-auto px-4">
-<Typography variant="body1">
-All communication between you and your
-Discourse is encrypted.
-</Typography>
-</Box><IconButton
-size="large"
-edge="start"
-color="inherit"
-aria-label="Open menu"
-sx={{ mx: 'auto' }}
->
-<GitHubIcon sx={{ fontSize: '2em' }} />
-</IconButton></>
+    <Box className="Home">
+      <main className="mt-6 px-4 max-w-3xl text-center mx-auto">
+        <Link to={routes.ABOUT}>
+          <Logo className="px-1 pb-4 mx-auto max-w-md" />
+        </Link>
+        <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto">
+          <Typography sx={{ mb: 2 }}>
+            Your user name:{' '}
+            <PeerNameDisplay paragraph={false} sx={{ fontWeight: 'bold' }}>
+              {userId}
+            </PeerNameDisplay>
+          </Typography>
+          <FormControl fullWidth>
+            <Tooltip title="Default Discourse Spaces are randomly generated client-side">
+              <TextField
+                label="Discourse name"
+                variant="outlined"
+                value={roomName}
+                onChange={handleRoomNameChange}
+                InputProps={{
+                  endAdornment: (
+                    <IconButton
+                      aria-label="Regenerate room id"
+                      onClick={() => setRoomName(uuid())}
+                      size="small"
+                    >
+                      <Cached />
+                    </IconButton>
+                  ),
+                  sx: { fontSize: { xs: '0.9rem', sm: '1rem' } },
+                }}
+                size="medium"
+              />
+            </Tooltip>
+          </FormControl>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <Button
+              variant="contained"
+              onClick={handleJoinPublicRoomClick}
+              sx={{
+                marginTop: 2,
+              }}
+              disabled={!isRoomNameValid}
+            >
+              Join public room
+            </Button>
+            <Button
+              variant="contained"
+              onClick={handleJoinPrivateRoomClick}
+              sx={{
+                marginTop: 2,
+                marginLeft: 2,
+              }}
+              disabled={!isRoomNameValid}
+            >
+              Join private room
+            </Button>
+          </Box>
+        </form>
+      </main>
+      <Divider sx={{ my: 2 }} />
+      <Box className="max-w-3xl text-center mx-auto px-4">
+        <Typography variant="body1">
+          
+        </Typography>
+      </Box>
+      <Tooltip title="View project source code and documentation">
+        <MuiLink
+          href="https://github.com/jeremyckahn/chitchatter"
+          target="_blank"
+          sx={{ display: 'block', textAlign: 'center', color: '#fff' }}
+        >
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="Open menu"
+            sx={{ mx: 'auto' }}
+          >
+            <GitHubIcon sx={{ fontSize: '2em' }} />
+          </IconButton>
         </MuiLink>
       </Tooltip>
-     
+      <Typography variant="body1" sx={{ textAlign: 'center' }}>
+        Licensed under{' '}
+        <MuiLink
+          href="https://github.com/jeremyckahn/chitchatter/blob/develop/LICENSE"
+          target="_blank"
+        >
+          GPL v2
         </MuiLink>
+        . Please{' '}
+        <MuiLink
+          href="https://github.com/jeremyckahn/chitchatter/blob/develop/README.md"
+          target="_blank"
+        >
+          read the docs
         </MuiLink>
         .
       </Typography>
-    </Box>    
-
+    </Box>
   )
 }
