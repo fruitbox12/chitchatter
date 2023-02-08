@@ -140,6 +140,7 @@ export function Home({ userId }: HomeProps) {
         </MuiLink>
         .
       </Typography>
-    </Box>
+    </Box>    </Box>
+
   )
 }
