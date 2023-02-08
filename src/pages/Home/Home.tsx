@@ -51,88 +51,85 @@ export function Home({ userId }: HomeProps) {
   const isRoomNameValid = roomName.length > 0
 
   return (
-    <Box className="Home">
-      <main className="mt-6 px-4 max-w-3xl text-center mx-auto">
-        <Link to={routes.ABOUT}>
-          <Logo className="px-1 pb-4 mx-auto max-w-md" />
-        </Link>
-        <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto">
-          <Typography sx={{ mb: 2 }}>
-            Your user name:{' '}
-            <PeerNameDisplay paragraph={false} sx={{ fontWeight: 'bold' }}>
-              {userId}
-            </PeerNameDisplay>
-          </Typography>
-          <FormControl fullWidth>
-            <Tooltip title="Default room names are randomly generated client-side">
-              <TextField
-                label="Discourse name"
-                variant="outlined"
-                value={roomName}
-                onChange={handleRoomNameChange}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton
-                      aria-label="Regenerate room id"
-                      onClick={() => setRoomName(uuid())}
-                      size="small"
-                    >
-                      <Cached />
-                    </IconButton>
-                  ),
-                  sx: { fontSize: { xs: '0.9rem', sm: '1rem' } },
-                }}
-                size="medium"
-              />
-            </Tooltip>
-          </FormControl>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
-            <Button
-              variant="contained"
-              onClick={handleJoinPublicRoomClick}
-              sx={{
-                marginTop: 2,
-              }}
-              disabled={!isRoomNameValid}
-            >
-              Join public room
-            </Button>
-            <Button
-              variant="contained"
-              onClick={handleJoinPrivateRoomClick}
-              sx={{
-                marginTop: 2,
-                marginLeft: 2,
-              }}
-              disabled={!isRoomNameValid}
-            >
-              Join Discourse
-            </Button>
-          </Box>
-        </form>
-      </main>
-      <Divider sx={{ my: 2 }} />
-      <Box className="max-w-3xl text-center mx-auto px-4">
-        <Typography variant="body1">
-        All communication between you and your
-          Discourse is encrypted. 
-        </Typography>
-      </Box>
-     
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="Open menu"
-            sx={{ mx: 'auto' }}
-          >
-            <GitHubIcon sx={{ fontSize: '2em' }} />
-          </IconButton>
+    <><Box className="Home">
+<main className="mt-6 px-4 max-w-3xl text-center mx-auto">
+<Link to={routes.ABOUT}>
+<Logo className="px-1 pb-4 mx-auto max-w-md" />
+</Link>
+<form onSubmit={handleFormSubmit} className="max-w-xl mx-auto">
+<Typography sx={{ mb: 2 }}>
+Your user name:{' '}
+<PeerNameDisplay paragraph={false} sx={{ fontWeight: 'bold' }}>
+{userId}
+</PeerNameDisplay>
+</Typography>
+<FormControl fullWidth>
+<Tooltip title="Default room names are randomly generated client-side">
+<TextField
+label="Discourse name"
+variant="outlined"
+value={roomName}
+onChange={handleRoomNameChange}
+InputProps={{
+endAdornment: (
+<IconButton
+aria-label="Regenerate room id"
+onClick={() => setRoomName(uuid())}
+size="small"
+>
+<Cached />
+</IconButton>
+),
+sx: { fontSize: { xs: '0.9rem',sm: '1rem' } },
+}}
+size="medium" />
+</Tooltip>
+</FormControl>
+</Box>
+
+<Box
+sx={{
+display: 'flex',
+justifyContent: 'center',
+}}
+>
+<Button
+variant="contained"
+onClick={handleJoinPublicRoomClick}
+sx={{
+marginTop: 2,
+}}
+disabled={!isRoomNameValid}
+>
+Join public room
+</Button>
+<Button
+variant="contained"
+onClick={handleJoinPrivateRoomClick}
+sx={{
+marginTop: 2,
+marginLeft: 2,
+}}
+disabled={!isRoomNameValid}
+>
+Join Discourse
+</Button>
+</Box>
+</form>
+</main><Divider sx={{ my: 2 }} /><Box className="max-w-3xl text-center mx-auto px-4">
+<Typography variant="body1">
+All communication between you and your
+Discourse is encrypted.
+</Typography>
+</Box><IconButton
+size="large"
+edge="start"
+color="inherit"
+aria-label="Open menu"
+sx={{ mx: 'auto' }}
+>
+<GitHubIcon sx={{ fontSize: '2em' }} />
+</IconButton></>
         </MuiLink>
       </Tooltip>
      
@@ -140,7 +137,7 @@ export function Home({ userId }: HomeProps) {
         </MuiLink>
         .
       </Typography>
-    </Box>    </Box>
+    </Box>    
 
   )
 }
