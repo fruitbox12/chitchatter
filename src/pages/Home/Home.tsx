@@ -66,7 +66,7 @@ export function Home({ userId }: HomeProps) {
           <FormControl fullWidth>
             <Tooltip title="Default room names are randomly generated client-side">
               <TextField
-                label="Room name"
+                label="Discourse name"
                 variant="outlined"
                 value={roomName}
                 onChange={handleRoomNameChange}
@@ -111,7 +111,7 @@ export function Home({ userId }: HomeProps) {
               }}
               disabled={!isRoomNameValid}
             >
-              Join private room
+              Join Discourse
             </Button>
           </Box>
         </form>
@@ -119,18 +119,11 @@ export function Home({ userId }: HomeProps) {
       <Divider sx={{ my: 2 }} />
       <Box className="max-w-3xl text-center mx-auto px-4">
         <Typography variant="body1">
-          This is a communication tool that is free, open source, and designed
-          for simplicity and security. All communication between you and your
-          online peers is encrypted. There is no trace of your conversation once
-          you leave.
+        All communication between you and your
+          Discourse is encrypted. 
         </Typography>
       </Box>
-      <Tooltip title="View project source code and documentation">
-        <MuiLink
-          href="https://github.com/jeremyckahn/chitchatter"
-          target="_blank"
-          sx={{ display: 'block', textAlign: 'center', color: '#fff' }}
-        >
+     
           <IconButton
             size="large"
             edge="start"
@@ -142,20 +135,8 @@ export function Home({ userId }: HomeProps) {
           </IconButton>
         </MuiLink>
       </Tooltip>
-      <Typography variant="body1" sx={{ textAlign: 'center' }}>
-        Licensed under{' '}
-        <MuiLink
-          href="https://github.com/jeremyckahn/chitchatter/blob/develop/LICENSE"
-          target="_blank"
-        >
-          GPL v2
+     
         </MuiLink>
-        . Please{' '}
-        <MuiLink
-          href="https://github.com/jeremyckahn/chitchatter/blob/develop/README.md"
-          target="_blank"
-        >
-          read the docs
         </MuiLink>
         .
       </Typography>
